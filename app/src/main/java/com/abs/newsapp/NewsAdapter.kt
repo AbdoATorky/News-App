@@ -2,6 +2,7 @@ package com.abs.newsapp
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ShareCompat
@@ -27,9 +28,11 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
 
     override fun onBindViewHolder(holder: NewsVH, position: Int) {
 
+        Log.d("trace","link :${articles[position].urlToImage}")
+
         val article = articles[position]
-        val url = article.url
         holder.binding.articleText.text = article.title
+        val url = article.url
 
         Glide
             .with(holder.binding.articleImage.context)
